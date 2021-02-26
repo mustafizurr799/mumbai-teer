@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="UTF-8"/><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=true;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log("... func = "+name);self.isInitialized=true;self.isComplete=true;log("... func.apply: "+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}
+if(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}
+if(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log("----- F'D: "+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log("... file = "+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log("----- ERR'D: "+self.name);self.isError=true;if(self.isBlock===true){processAll();}};scr.onreadystatechange=scr.onload=function(){var state=scr.readyState;log("----- F'D: "+self.name);if((!state||/loaded|complete/.test(state))){self.isComplete=true;if(self.isBlock===true){processAll();}}};document.getElementsByTagName('head')[0].appendChild(scr);}}};function init(){window.addEventListener("load",function(){setTimeout(function(){timeDelayFired=true;log('TDELAY -----');processAll();},5000);},false);}
+function addFile(name,path,isBlock,blockedBy,async,defer,proceedIfError,priority){var item=new obj.file(name,path,isBlock,blockedBy,async,defer,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function setallowLoad(settobool){allowLoad=settobool}
+function addFunc(name,func,parameters,isBlock,blockedBy,autoInc,deleteWhenComplete,proceedIfError,priority){if(autoInc===true)name=name+"_"+incr++;var item=new obj.func(name,func,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError);if(priority===true){hpItems[name]=item}else{lpItems[name]=item}
+items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFile(name,path){var item=new obj.file(name,path,false,[],false,false,true);item.isTimeDelay=true;log(name+' ... '+' FILE! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function addTimeDelayFunc(name,func,parameters){var item=new obj.func(name,func,parameters,false,[],true,true);item.isTimeDelay=true;log(name+' ... '+' FUNCTION! TDELAY');lpItems[name]=item;items[name]=item;checkIfBlocked(item);}
+function checkIfBlocked(item){if(isBlocked(item)===true||allowLoad==false)return;item.process();}
+function isBlocked(item){if(item.isTimeDelay===true&&timeDelayFired===false){log(item.name+" blocked = TIME DELAY!");return true;}
+if(item.blockedBy instanceof Array){for(var i=0;i<item.blockedBy.length;i++){var block=item.blockedBy[i];if(items.hasOwnProperty(block)===false){log(item.name+" blocked = "+block);return true;}else if(item.proceedIfError===true&&items[block].isError===true){return false;}else if(items[block].isComplete===false){log(item.name+" blocked = "+block);return true;}}}
+return false;}
+function log(msg){var href=window.location.href;var reg=new RegExp('[?&]ezq=([^&#]*)','i');var string=reg.exec(href);var res=string?string[1]:null;if(res==="1")console.debug(msg);}
+function processAll(){count++;if(count>200)return;log("let's go");processItems(hpItems);processItems(lpItems);}
+function processItems(list){for(var i in list){if(list.hasOwnProperty(i)===false)continue;var item=list[i];if(item.isComplete===true||isBlocked(item)||item.isInitialized===true||item.isError===true){if(item.isError===true){log(item.name+': error')}else if(item.isComplete===true){log(item.name+': complete already')}else if(item.isInitialized===true){log(item.name+': initialized already')}}else{item.process();}}}
+init();return{addFile:addFile,addDelayFile:addTimeDelayFile,addFunc:addFunc,addDelayFunc:addTimeDelayFunc,items:items,processAll:processAll,setallowLoad:setallowLoad};})();__ez.evt.add=function(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n()},__ez.evt.remove=function(e,t,n){e.removeEventListener?e.removeEventListener(t,n,!1):e.detachEvent?e.detachEvent("on"+t,n):delete e["on"+t]};__ez.script.add=function(e){var t=document.createElement("script");t.src=e,t.async=!0,t.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(t)};__ez.queue.addFile('/detroitchicago/boise.js', '/detroitchicago/boise.js?gcb=192-7&cb=1', false, [], true, false, true, false);__ez.dot={};__ez.queue.addFile('/detroitchicago/memphis.js', '/detroitchicago/memphis.js?gcb=192-7&cb=5', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/minneapolis.js', '/detroitchicago/minneapolis.js?gcb=192-7&cb=3', false, [], true, false, true, false);__ez.vep=(function(){var pixels=[],pxURL="/detroitchicago/grapefruit.gif";function AddPixel(vID,pixelData){if(__ez.dot.isDefined(vID)&&__ez.dot.isValid(pixelData)){pixels.push({type:'video',video_impression_id:vID,domain_id:__ez.dot.getDID(),t_epoch:__ez.dot.getEpoch(0),data:__ez.dot.dataToStr(pixelData)});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender"){return;}
+if(__ez.dot.isDefined(pixels)&&pixels.length>0){while(pixels.length>0){var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(__ez.template.isOrig===true?1:0)+"&v="+btoa(JSON.stringify(pushPixels));__ez.dot.Fire(pixelURL);}}
+pixels=[];}
+return{Add:AddPixel,Fire:Fire};})();</script><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>__ez.pel=(function(){var pixels=[],pxURL="/porpoiseant/army.gif";function AddAndFirePixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0);Fire();}
+function AddAndFireOrigPixel(adSlot,pixelData){AddPixel(adSlot,pixelData,0,0,0,0,0,true);Fire();}
+function GetCurrentPixels(){return pixels;}
+function AddPixel(adSlot,pixelData,revenue,est_revenue,bid_floor_filled,bid_floor_prev,stat_source_id,isOrig){if(!__ez.dot.isDefined(adSlot)||__ez.dot.isAnyDefined(adSlot.getSlotElementId,adSlot.ElementId)==false){return;}
+var ad_position_id=parseInt(__ez.dot.getTargeting(adSlot,'ap'));var impId=__ez.dot.getSlotIID(adSlot),adUnit=__ez.dot.getAdUnit(adSlot,isOrig);var compId=parseInt(__ez.dot.getTargeting(adSlot,"compid"));var lineItemId=0;var creativeId=0;var ezimData=getEzimData(adSlot);if(typeof ezimData=='object'){if(ezimData.creative_id!==undefined){creativeId=ezimData.creative_id;}
+if(ezimData.line_item_id!==undefined){lineItemId=ezimData.line_item_id;}}
+if(__ez.dot.isDefined(impId,adUnit)&&__ez.dot.isValid(pixelData)){pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),revenue:revenue,est_revenue:est_revenue,ad_position:ad_position_id,ad_size:"",bid_floor_filled:bid_floor_filled,bid_floor_prev:bid_floor_prev,stat_source_id:stat_source_id,country_code:__ez.dot.getCC(),pageview_id:__ez.dot.getPageviewId(),comp_id:compId,line_item_id:lineItemId,creative_id:creativeId,data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig,});}}
+function AddPixelById(impFullId,pixelData,isOrig){var vals=impFullId.split('/');if(__ez.dot.isDefined(impFullId)&&vals.length===3&&__ez.dot.isValid(pixelData)){var adUnit=vals[0],impId=vals[2];pixels.push({type:"impression",impression_id:impId,domain_id:__ez.dot.getDID(),unit:adUnit,t_epoch:__ez.dot.getEpoch(0),pageview_id:__ez.dot.getPageviewId(),data:__ez.dot.dataToStr(pixelData),is_orig:isOrig||__ez.template.isOrig});}}
+function Fire(){if(typeof document.visibilityState!=='undefined'&&document.visibilityState==="prerender")return;if(__ez.dot.isDefined(pixels)&&pixels.length>0){var allPixels=[pixels.filter(function(pixel){return pixel.is_orig}),pixels.filter(function(pixel){return!pixel.is_orig})];allPixels.forEach(function(pixels){while(pixels.length>0){var isOrig=pixels[0].is_orig||false;var j=5;if(j>pixels.length){j=pixels.length;}
+var pushPixels=pixels.splice(0,j);var pixelURL=__ez.dot.getURL(pxURL)+"?orig="+(isOrig===true?1:0)+"&sts="+btoa(JSON.stringify(pushPixels));if(typeof window.isAmp!=='undefined'&&isAmp&&typeof window._ezaq!=='undefined'&&_ezaq.hasOwnProperty("domain_id")){pixelURL+="&visit_uuid="+_ezaq['visit_uuid'];}
+__ez.dot.Fire(pixelURL);}})}
+pixels=[];}
+function getEzimData(adSlot){if(typeof _ezim_d=="undefined"){return false}
+var adUnitName=__ez.dot.getAdUnitPath(adSlot).split('/').pop();if(typeof _ezim_d==='object'&&_ezim_d.hasOwnProperty(adUnitName)){return _ezim_d[adUnitName];}
+for(var ezimKey in _ezim_d){if(ezimKey.split('/').pop()===adUnitName){return _ezim_d[ezimKey];}}
+return false;}
+return{Add:AddPixel,AddAndFire:AddAndFirePixel,AddAndFireOrig:AddAndFireOrigPixel,AddById:AddPixelById,Fire:Fire,GetPixels:GetCurrentPixels,};})();__ez.queue.addFile('/detroitchicago/pacoima.js', '/detroitchicago/pacoima.js?gcb=192-7&cb=1', false, ['/detroitchicago/memphis.js'], true, false, true, false);__ez.queue.addFile('/detroitchicago/raleigh.js', '/detroitchicago/raleigh.js?gcb=192-7&cb=4', false, [], true, false, true, false);__ez.queue.addFile('/detroitchicago/tampa.js', '/detroitchicago/tampa.js?gcb=192-7&cb=3', false, [], true, false, true, false);</script><script data-ezscrex="false" data-cfasync="false">(function(){if("function"===typeof window.CustomEvent)return!1;window.CustomEvent=function(c,a){a=a||{bubbles:!1,cancelable:!1,detail:null};var b=document.createEvent("CustomEvent");b.initCustomEvent(c,a.bubbles,a.cancelable,a.detail);return b}})();</script><script data-ezscrex="false" data-cfasync="false">__ez.queue.addFile('/detroitchicago/tulsa.js', '/detroitchicago/tulsa.js?gcb=192-7&cb=5', false, [], true, false, true, false);</script><meta name="google" content="notranslate"/><meta name="robots" content="index, follow"/><meta http-equiv="Content-Language" content="en_US"/>
+	<title>TEER RESULTS - SHILLONG TEER RESULTS - KHANAPARA TEER RESULTS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content="Get fastest update on Shillong Teer Results, Khanapara Teer Results, Jowai Ladrymbai Teer Results, Juwai Teer Results  online here."/><meta property="og:url" content="https://www.teerresults.com"><meta property="og:type" content="website"><meta property="og:title" content="TEER RESULTS - SHILLONG TEER RESULTS - KHANAPARA TEER RESULTS"/><meta property="og:description" content="Get today's Shillong Teer Results, Khanapara Teer Results, Jowai Ladrymbai Teer Results, Juwai Teer Results online here. We update teer results fastest of all."/><meta property="og:image" content="https://www.teerresults.com/images/ogp-logo.png"/><script defer src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script defer src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script><script>//<![CDATA[
+var canRunAds=true;
+//]]></script><script defer src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script><script defer src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script><script type="text/javascript" defer src="js/Customjs.js.pagespeed.jm.4JC_537bi1.js"></script>
+	<link href="css/A.bootstrap.css+style.css,Mcc.A3tzhuVNWi.css.pagespeed.cf.BZnk8sngfr.css" media="screen" rel="stylesheet" type="text/css" /><!--[if lte IE 8]>
+<link rel="stylesheet"  href="./css/menuie.css" type="text/css" media="screen"/>
+<link rel="stylesheet"  href="./css/vmenuie.css" type="text/css" media="screen"/>
+<![endif]--><script type="text/javascript" defer>//<![CDATA[
+jQuery(document).ready(function(){var offset=200;var duration=500;jQuery(window).scroll(function(){if(jQuery(this).scrollTop()>offset){jQuery('.back-to-top').fadeIn(duration);}else{jQuery('.back-to-top').fadeOut(duration);}});jQuery('.back-to-top').click(function(event){event.preventDefault();jQuery('html, body').animate({scrollTop:0},duration);return false;});});
+//]]></script><!--[if IE 7]>
+<style type="text/css" media="screen">
+#ttr_vmenu_items  li.ttr_vmenu_items_parent {margin-left:-16px;font-size:0px;}
+</style>
+<![endif]--><!--[if lt IE 9]>
+<script type="text/javascript" defer src="./js/html5shiv.js" asnyc>
+</script>
+<script type="text/javascript" defer src="./js/respond.min.js" asnyc>
+</script>
+<![endif]-->
+	<style type="text/css">.table{width:85%}.table td{border:#000 solid 1px!important}.table th{border:#000 solid 1px!important}a.intl,a.intl:hover,a.intl:active,a.intl:visited{color:red}a.intl:hover{text-decoration:underline}h3,.h3{color:#000}h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6{margin-top:2px;margin-bottom:2px;text-align:center}.noselect{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}@media only screen and (min-width:120px) and (max-width:480px){h1,.h1{font-size:20px;text-align:center;margin-top:5px;margin-bottom:5px}h2,.h2{font-size:16px;display:block}h3,.h3{font-size:15px}h4,.h4,h5,.h5{font-size:15px}h6,.h6{font-size:12px}h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6{margin-top:1px;margin-bottom:1px;text-align:center}td,.td,th,.th{font-size:14px}}
+	</style>
+	<!-- Ezoic Ad Testing Code --><!-- Ezoic Ad Testing Code --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<link as="script" href="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" rel="preload" />
+	<style type="text/css">.async-hide{opacity:0!important}
+	</style>
+	<link href="https://www.teerresults.com/" rel="canonical" /><script type="text/javascript">var ezouid = "1";</script>
+	<base href="https://www.teerresults.com/" /><script type='text/javascript'>
+var ezoTemplate = 'old_site_gc';
+if(typeof ezouid == 'undefined')
+{
+    var ezouid = 'none';
+}
+var ezoFormfactor = '1';
+var ezo_elements_to_check = Array();
+</script><!-- START EZHEAD --><script data-ezscrex="false" type='text/javascript'>
+var soc_app_id = '0';
+var did = 70296;
+var ezdomain = 'teerresults.com';
+var ezoicSearchable = 1;
+</script><!--{jquery}--><!-- END EZHEAD --><script data-ezscrex="false" type="text/javascript" data-cfasync="false">var _ezaq = {"ad_cache_level":0,"ad_lazyload_version":0,"city":"Guwahati","country":"IN","days_since_last_visit":0,"domain_id":70296,"domain_test_group":20200409,"engaged_time_visit":70,"ezcache_level":0,"ezcache_skip_code":0,"form_factor_id":1,"framework_id":1,"is_return_visitor":true,"is_sitespeed":0,"last_page_load":"1613976987045","last_pageview_id":"278bfae8-f793-4210-6bfa-f730eb261c6a","lt_cache_level":0,"metro_code":0,"page_ad_positions":"","page_view_count":1,"page_view_id":"69b55a24-15a8-4c0d-4666-bb4681f3e78a","position_selection_id":0,"postal_code":"781122","pv_event_count":0,"response_size_orig":26611,"response_time_orig":323,"serverid":"15.236.239.108:14771","state":"AS","t_epoch":1613977907,"template_id":126,"time_on_site_visit":891,"url":"https://www.teerresults.com/","user_id":0,"word_count":298,"worst_bad_word_level":0};var _ezExtraQueries = "&ez_orig=1";</script><script data-ezscrex='false' data-cfasync='false' type="text/javascript" src="/detroitchicago/rochester.js?dcb=192-7&cb=2&v=9" async></script><script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+function create_ezolpl(pvID, rv) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    __ez.ck.setByCat("ezux_lpl_70296=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+}
+function attach_ezolpl(pvID, rv) {
+    if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+    }
+    if(window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+    } else {
+        if(window.onload) {
+            var curronload = window.onload;
+            var newonload = function(evt) {
+                curronload(evt);
+                create_ezolpl(pvID, rv);
+            };
+            window.onload = newonload;
+        } else {
+            window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+    }
+}
+
+__ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["69b55a24-15a8-4c0d-4666-bb4681f3e78a", "true"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+</script>
+</head>
+<body class="home" oncontextmenu="return false;" ondragstart="return false;"><noscript>
+<div style="position: fixed; top: 0px; left: 0px; z-index: 3000; height: 100%; width: 100%; background-color: #000000">
+  <p style="margin-left: 10px">JavaScript is not enabled.</p>
+  <p style="margin-left: 10px">Enable JavaScript to view the website.</p>
+</div>
+</noscript>
+<div class="totopshow"></div>
+
+<div class="container" id="_page">
+<header id="_header">
+<div id="_header_inner">
+<div class="_slogan_position">
+<h2 class="_slogan_style"><span style="font-size:26px;"><strong>Mumbai Teer&nbsp;Result,</strong>Shillong Teer results, Khanapara Teer results<strong>,</strong>Jowai-Ladrymbai Teer Results.</span></h2>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 26px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+</div>
+</div>
+</header>
+
+<div id="_content_and_sidebar_container">
+<div id="_content">
+<div class="container-fluid" id="_content_margin">
+<div class="_home_html_row0 row">
+<div class="post_column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="_home_html_column00" style="min-width:125px">
+<div align="center" class="html_content noselect" style="min-width:125px"><span style="font-size:26px;">Welcome to <strong>TEER RESULTS</strong> website.</span>
+
+<h3 align="center"><iframe frameborder="0" height="32" src="http://free.timeanddate.com/clock/i7ou7b0p/n1528/fs24/ftb/bac009/th2" width="166"></iframe></h3>
+<span style="font-size:26px;"> </span><!-- Ezoic - top_of_page 101 - top_of_page -->
+
+<div id="ezoic-pub-ad-placeholder-101"></div>
+
+<div id="ezoic-pub-ad-placeholder-101"><span style="font-size:26px;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- TeerResult-Home-Top --><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></span></div>
+
+<p><span style="font-size:26px;"><!-- End Ezoic - top_of_page 101 - top_of_page --> <strong>TEER RESULTS</strong></span></p>
+
+<p></p>
+<a href="#" target="_self"><img alt="Teer Results" class="_header_logo" src="data:image/webp;base64,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" /></a>
+
+<p></p>
+
+<p><span style="font-size:26px;"><strong>Mumbai Teer&nbsp;Result</strong></span></p>
+
+<p><span style="font-size:26px;"><strong>Jowai Ladrymbai Teer Result</strong></span><br />
+<span style="font-size:26px;"><strong>Shillong Teer Result</strong><br />
+<strong>Khanapara Teer Result</strong></span></p>
+
+<p><br />
+<!-- Ezoic - under_page_title 104 - under_page_title --></p>
+
+<div id="ezoic-pub-ad-placeholder-104"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- TeerResults-Home-001 --><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<table cellpadding="2" cellspacing="0" class="table table-bordered" style="margin:auto;">
+	<tbody>
+		<tr>
+			<th align="center" colspan="2">
+			<center><span style="font-size:24px;"><strong>Mumbai Teer &nbsp;Result</strong></span></center>
+			</th>
+		</tr>
+		<tr>
+			<td align="center" width="50%">FR (05:00PM)</td>
+			<td align="center" width="50%">SR (05:30PM)</td>
+		</tr>
+		<tr><!--JUWAI F/R Result-->
+			<td align="center" width="50%">39</td>
+			<!--JUWAI S/R Result-->
+			<td align="center" width="50%">14</td>
+		</tr>
+	</tbody>
+</table>
+
+<p></p>
+
+<table cellpadding="2" cellspacing="0" class="table table-bordered" style="margin:auto;">
+	<tbody>
+		<tr>
+			<th align="center" colspan="2">
+			<center><span style="font-size:24px;">JUWAI TEER RESULT</span></center>
+			</th>
+		</tr>
+		<tr>
+			<td align="center" width="50%">FR (02:00PM)</td>
+			<td align="center" width="50%">SR (02:45PM)</td>
+		</tr>
+		<tr><!--JUWAI F/R Result-->
+			<td align="center" width="50%">39</td>
+			<!--JUWAI S/R Result-->
+			<td align="center" width="50%">14</td>
+		</tr>
+	</tbody>
+</table>
+
+<p><!-- Ezoic - under_first_paragraph 108 - under_first_paragraph --></p>
+
+<p></p>
+
+<div id="ezoic-pub-ad-placeholder-108"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- TeerResults-Home002 --><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<!-- End Ezoic - under_first_paragraph 108 - under_first_paragraph -->
+
+<table cellpadding="2" cellspacing="0" class="table table-bordered" style="margin:auto;">
+	<tbody>
+		<tr>
+			<th align="center" colspan="2">
+			<center><span style="font-size:24px;">KHANAPARA TEER RESULT</span></center>
+			</th>
+		</tr>
+		<tr>
+			<td align="center" width="50%">FR (04:00PM)</td>
+			<td align="center" width="50%">SR (04:30PM)</td>
+		</tr>
+		<tr><!--KHANAPARA FR-->
+			<td align="center" width="50%">95</td>
+			<!--KHANAPARA SR-->
+			<td align="center" width="50%">18</td>
+		</tr>
+	</tbody>
+</table>
+
+<p><!-- Ezoic - under_second_paragraph 109 - under_second_paragraph --></p>
+
+<p></p>
+
+<div id="ezoic-pub-ad-placeholder-109"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- TeerResults-Home-003 --><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<!-- End Ezoic - under_second_paragraph 109 - under_second_paragraph --> <span style="font-size:1.2em;">Khanapara Teer Result declaration time varies everyday.</span>
+
+<table cellpadding="2" cellspacing="0" class="table table-bordered" style="margin:auto;">
+	<tbody>
+		<tr>
+			<th align="center" colspan="2">
+			<center><span style="font-size:24px;">SHILLONG TEER RESULT</span></center>
+			</th>
+		</tr>
+		<tr>
+			<td align="center">FR (03:45PM)</td>
+			<td align="center">SR (04:45PM)</td>
+		</tr>
+		<tr><!--SHILLONG FR-->
+			<td align="center" width="50%">44</td>
+			<!--SHILLONG SR-->
+			<td align="center" width="50%">96</td>
+		</tr>
+	</tbody>
+</table>
+
+<p></p>
+
+<p><span style="font-size:24px;">Shillong Teer Result is updated as per result board time.</span><br />
+<!-- Ezoic - TR-eZoic-010 - mid_content --></p>
+
+<div id="ezoic-pub-ad-placeholder-117"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- TeerResults-Home-004 --><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<!-- End Ezoic - TR-eZoic-010 - mid_content -->
+
+<table cellpadding="2" cellspacing="0" class="table table-bordered" style="margin:auto;">
+	<tbody>
+		<tr>
+			<th align="center" colspan="2">
+			<center>JOWAI-LADRYMBAI RESULT</center>
+			</th>
+		</tr>
+		<tr>
+			<td align="center">JOWAI (04:30PM)</td>
+			<td align="center">LADRYMBAI (04:35PM)</td>
+		</tr>
+		<tr><!-- JOWAI -->
+			<td align="center" height="24" width="50%">85</td>
+			<!-- LADRIMBAI -->
+			<td align="center" width="50%">13</td>
+		</tr>
+	</tbody>
+</table>
+
+<p><!-- Ezoic - incontent_2 118 - mid_content --></p>
+
+<p></p>
+
+<div id="ezoic-pub-ad-placeholder-118"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- TeerResults-Home-005 --><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<!-- End Ezoic - incontent_2 118 - mid_content -->
+
+<table cellpadding="2" cellspacing="0" class="table table-bordered" style="margin:auto;">
+	<tbody>
+		<tr>
+			<th colspan="2">
+			<center><span style="font-size:24px;">NIGHT TEER RESULT</span></center>
+			</th>
+		</tr>
+		<tr>
+			<td align="center">FR (08:00PM)</td>
+			<td align="center">SR (08:45PM)</td>
+		</tr>
+		<tr><!--Night F/R Result-->
+			<td align="center">40</td>
+			<!--Night S/R Result-->
+			<td align="center">39</td>
+		</tr>
+	</tbody>
+</table>
+
+<h5>TEER RESULT UPDATE TIME IS SUBJECTED TO AVAILABILITY &amp; INTERNET CONNECTIVITY.</h5>
+
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+
+<div style="clear:both;"></div>
+</div>
+</div>
+</div>
+
+<div class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block"></div>
+</div>
+
+<div class="_home_html_row1 row">
+<div class="post_column col-lg-3 col-md-6 col-sm-6 col-xs-12">
+<div class="_home_html_column10">
+<div class="html_content">
+<p></p>
+
+<p style="margin:0.14em 0em 0em 0.57em;"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="clear:both"></div>
+</div>
+
+<footer id="_footer">
+<div class="_footer_bottom_footer">
+<div class="_footer_bottom_footer_inner">
+<div class="_footershape1">
+<div class="html_content">
+<p style="text-align:Center;"><span style="color:#000000;">Copyrights&copy; 2021 All Rights Reserved. Terms of Use / Privacy Policy</span></p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-bottom-collapse: separate;"></div>
+</div>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('provide','adblockTracker',function(tracker,opts){var ad=document.createElement('ins');ad.className='AdSense';ad.style.display='block';ad.style.position='absolute';ad.style.top='-1px';ad.style.height='1px';document.body.appendChild(ad);tracker.set('dimension'+opts.dimensionIndex,!ad.clientHeight);document.body.removeChild(ad);});ga('create','UA-78300722-1','auto');ga('require','adblockTracker',{dimensionIndex:1});ga('send','pageview');</script><script type='text/javascript' style='display:none;' async>
+__ez.queue.addFile('edmonton.php', '/detroitchicago/edmonton.webp?a=a&cb=7&shcb=34', true, ['/detroitchicago/minneapolis.js'], true, false, false, false);
+__ez.queue.addFile('jellyfish.php', '/porpoiseant/jellyfish.webp?a=a&cb=7&shcb=34', false, [], true, false, false, false);
+</script><script>var _audins_dom="teerresults_com",_audins_did=70296;__ez.queue.addDelayFunc("audins.js","__ez.script.add", "//go.ezoic.net/detroitchicago/audins.js?cb=192-7");</script><noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p-31iz6hfFutd16.gif?labels=Domain.teerresults_com,DomainId.70296" border="0" height="1" width="1" alt="Quantcast"/></div></noscript><script type="text/javascript" data-cfasync="false"></script></body>
+</html>
